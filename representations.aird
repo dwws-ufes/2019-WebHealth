@@ -862,7 +862,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/br.ufes.inf.nemo.FrameWeb_Martins2015.design/description/FrameWeb.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='FrameWebPersistenceModel']/@defaultLayer/@containerMappings[name='PersistencePackage']/@subContainerMappings[name='DAOClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/br.ufes.inf.nemo.FrameWeb_Martins2015.design/description/FrameWeb.odesign#//@ownedViewpoints[name='']/@ownedRepresentations[name='FrameWebPersistenceModel']/@defaultLayer/@containerMappings[name='PersistencePackage']/@subContainerMappings[name='DAOClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_HIVioNysEemada-ZFA3j1w" name=" + realizarLogin (login : String, senha : String) : void">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_HIVioNysEemada-ZFA3j1w" name=" + realizarLogin (login : String, senha : String) : Paciente">
           <target xmi:type="frameweb:DAOMethod" href="Model.frameweb#//@compose.1/br.ufes.informatica.webhealth.core.persistence/PacienteJPADAO/realizarLogin"/>
           <semanticElements xmi:type="frameweb:DAOMethod" href="Model.frameweb#//@compose.1/br.ufes.informatica.webhealth.core.persistence/PacienteJPADAO/realizarLogin"/>
           <ownedStyle xmi:type="diagram:Dot" uid="_HIWJsNysEemada-ZFA3j1w" showIcon="false" labelAlignment="LEFT" labelPosition="node">

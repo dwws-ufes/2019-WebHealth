@@ -75,7 +75,7 @@
     <packagedElement xsi:type="frameweb:PersistencePackage" name="br.ufes.informatica.webhealth.core.persistence">
       <packagedElement xsi:type="frameweb:DAOInterface" name="PacienteDAO"/>
       <packagedElement xsi:type="frameweb:DAOClass" name="PacienteJPADAO">
-        <ownedOperation xsi:type="frameweb:DAOMethod" name="realizarLogin">
+        <ownedOperation xsi:type="frameweb:DAOMethod" name="realizarLogin" methodType="//@compose.0/br.ufes.informatica.webhealth.core.domain/Paciente">
           <ownedParameter name="login">
             <type xsi:type="uml:Class" href="frameweb/Java.frameweb#//@compose.0/String"/>
           </ownedParameter>
