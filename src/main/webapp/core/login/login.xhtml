@@ -6,40 +6,21 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:adm="http://github.com/adminfaces"
     template="/WEB-INF/templates/template.xhtml">
-
 	
 
     <ui:define name="title">
-        <h:outputText value="#{msgsCore['myJSFController.title']}" />
+        <h:outputText value="#{msgsCore['login.title']}" />
     </ui:define>
 
     <ui:define name="description">
-        <h:outputText value="#{msgsCore['myJSFController.title.description']}" />
+        <h:outputText value="#{msgsCore['login.title.description']}" />
     </ui:define>
 
     <ui:define name="body">
-		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['myJSFController.title']}" />
-	
-	    
+		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['login.title']}" /><h:form id="login">
 		
-		
-		
-		<h:form id="login">
-		
-			
-			
-
-			
-			<p:inputText id="login" value="#{.login}" />
-			
-			
-			
-			
-
-			
-			<p:password id="senha" value="#{.senha}" />
-			
-			
+			<p:inputText id="login" value="#{loginController.login}" />
+			<p:password id="senha" value="#{loginController.senha}" />
 		</h:form>
     
     </ui:define>

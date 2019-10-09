@@ -46,7 +46,7 @@ public class Doenca extends PersistentObjectSupport implements Comparable<Doenca
 	}
 
 	/** Getter for Source. */
-	public Set<Ocorrencia> getOcorrencia() {
+	public Set<Ocorrencia> getOcorrencias() {
 		return ocorrencias;
 	}
 

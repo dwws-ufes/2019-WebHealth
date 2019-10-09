@@ -1,4 +1,4 @@
-package br.ufes.informatica.webhealth.core.controller;
+package br.ufes.informatica.webhealth.core.application;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -29,6 +29,5 @@ public class CadastroPacienteServiceBean implements CadastroPacienteService {
 		// FIXME: auto-generated method stub
 		return null;
 	}
-
 	
 }

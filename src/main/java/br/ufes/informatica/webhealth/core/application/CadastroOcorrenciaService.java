@@ -1,4 +1,4 @@
-package br.ufes.informatica.webhealth.core.controller;
+package br.ufes.informatica.webhealth.core.application;
 
 import java.io.Serializable;
 import javax.ejb.Local;

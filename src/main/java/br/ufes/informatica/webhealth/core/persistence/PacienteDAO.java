@@ -8,6 +8,6 @@ import br.ufes.informatica.webhealth.core.domain.Paciente;
 @Local
 public interface PacienteDAO extends BaseDAO<Paciente> {
 
-	void realizarLogin(String login, String senha);
+	public Paciente realizarLogin(String login, String senha);
 	
 }
