@@ -9,6 +9,14 @@
 	
 
     <ui:define name="title">
-        <h:outputText value="teste" />
+        <h:outputText value="#{msgsCore['cadastroOcorrencia.title']}" />
+    </ui:define>
+
+    <ui:define name="description">
+        <h:outputText value="#{msgsCore['cadastroOcorrencia.title.description']}" />
+    </ui:define>
+
+    <ui:define name="body">
+		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['cadastroOcorrencia.title']}" />
     </ui:define>
 </ui:composition>

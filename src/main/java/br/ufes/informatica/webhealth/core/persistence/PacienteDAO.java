@@ -1,7 +1,6 @@
 package br.ufes.informatica.webhealth.core.persistence;
 
 import javax.ejb.Local;
-
 import br.ufes.inf.nemo.jbutler.ejb.persistence.BaseDAO;
 import br.ufes.informatica.webhealth.core.domain.Paciente;
 
@@ -9,6 +8,6 @@ import br.ufes.informatica.webhealth.core.domain.Paciente;
 @Local
 public interface PacienteDAO extends BaseDAO<Paciente> {
 
-	public Boolean realizarLogin();
-
+	public Paciente realizarLogin(String login, String senha);
+	
 }

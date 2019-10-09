@@ -6,61 +6,29 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:adm="http://github.com/adminfaces"
     template="/WEB-INF/templates/template.xhtml">
-
 	
 
     <ui:define name="title">
-        <h:outputText value="#{msgsCore['myJSFController.title']}" />
+        <h:outputText value="#{msgsCore['dashboard.title']}" />
     </ui:define>
 
     <ui:define name="description">
-        <h:outputText value="#{msgsCore['myJSFController.title.description']}" />
+        <h:outputText value="#{msgsCore['dashboard.title.description']}" />
     </ui:define>
 
     <ui:define name="body">
-		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['myJSFController.title']}" />
-	
-	    
-		
-		
-		
+		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['dashboard.title']}" />
+		<p:String id="nomeDoenca" value="#{dashboardController.nomeDoenca}" />
+		<p:barChart id="sintomasChart" value="#{dashboardController.sintomasChart}" />
+		<p:chart id="remediosChart" value="#{dashboardController.remediosChart}" />
+		<p:chart id="tratamentosChart" value="#{dashboardController.tratamentosChart}" />
 		<h:form id="filtro">
 		
-			
-			
-
-			
-			<p:selectCheckboxMenu id="doencas" value="#{filtroController.doencas}" />
-			
-			
-			
-			
-
-			
-			<p:selectCheckboxMenu id="sintomas" value="#{filtroController.sintomas}" />
-			
-			
-			
-			
-
-			
-			<p:selectCheckboxMenu id="remedios" value="#{filtroController.remedios}" />
-			
-			
-			
-			
-
-			
-			<p:selectOneMenu id="cidade" value="#{filtroController.cidade}" />
-			
-			
-			
-			
-
-			
-			<p:selectOneMenu id="estado" value="#{filtroController.estado}" />
-			
-			
+			<p:selectCheckboxMenu id="doencas" value="#{dashboardController.doencas}" />
+			<p:selectCheckboxMenu id="sintomas" value="#{dashboardController.sintomas}" />
+			<p:selectCheckboxMenu id="remedios" value="#{dashboardController.remedios}" />
+			<p:selectOneMenu id="cidade" value="#{dashboardController.cidade}" />
+			<p:selectOneMenu id="estado" value="#{dashboardController.estado}" />
 		</h:form>
     
     </ui:define>
