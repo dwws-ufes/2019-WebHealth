@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui" template="/admin.xhtml">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/admin.xhtml">
 
-    <ui:define name="head">
-        <title>WebHealth</title>
-    </ui:define>
+	<ui:define name="head">
+		<title>WebHealth</title>
+	</ui:define>
 
-    <ui:define name="logo-lg">
+	<ui:define name="logo-lg">
         WebHealth
     </ui:define>
-    <ui:define name="menu">
-        <ul class="sidebar-menu">
-            <li><p:link outcome="/index" onclick="clearBreadCrumbs()">
-                    <i class="fa fa-home"></i>
-                </p:link></li>
-            <li class="header"></li>
-<li><p:link outcome="/index" onclick="clearBreadCrumbs()">
-		<i class="fa fa-calendar"></i>
-	</p:link></li>
-        </ul>
-    </ui:define>
+	<ui:define name="menu">
+		<ul class="sidebar-menu">
+			<li><p:link outcome="/core/dashboard/dashboard.xhtml" onclick="clearBreadCrumbs()">
+					<i class="fa fa-dashboard"></i> <span>Dashboard</span>
+				</p:link></li>
+			<li><p:link outcome="/core/cadastro/paciente/cadastro.xhtml" onclick="clearBreadCrumbs()">
+					<i class="fa fa-address-card"></i><span>Paciente</span>
+				</p:link></li>
+			<li><p:link outcome="/core/cadastro/ocorrencia/ocorrencia.xhtml" onclick="clearBreadCrumbs()">
+					<i class="fa fa-map-marker"></i><span>Ocorrencia</span>
+				</p:link></li>
+		</ul>
+	</ui:define>
 
-    <ui:define name="top-menu">
+	<ui:define name="top-menu">
+	  <a href="#" id="layout-setup" data-toggle="control-sidebar" class="hidden-sm hidden-xs"><i class="fa fa-gears"></i></a>
+	
+	</ui:define>
 
-    </ui:define>
-
-<ui:define name="footer">
-    <h:outputText value="WebHealth 2019" escape="false" />
-	<div class="pull-right hidden-xs" style="color: gray"><i>1.0.0</i></div>
-</ui:define>
+	<ui:define name="footer">
+		<h:outputText value="WebHealth 2019" escape="false" />
+		<div class="pull-right hidden-xs" style="color: gray">
+			<i>1.0.0</i>
+		</div>
+	</ui:define>
 </ui:composition>

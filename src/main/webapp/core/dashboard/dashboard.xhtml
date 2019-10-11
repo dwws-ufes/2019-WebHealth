@@ -18,7 +18,7 @@
 
     <ui:define name="body">
 		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['dashboard.title']}" />
-		<p:String id="nomeDoenca" value="#{dashboardController.nomeDoenca}" />
+		<p:inputText id="nomeDoenca" value="#{dashboardController.nomeDoenca}" />
 		<p:barChart id="sintomasChart" value="#{dashboardController.sintomasChart}" />
 		<p:chart id="remediosChart" value="#{dashboardController.remediosChart}" />
 		<p:chart id="tratamentosChart" value="#{dashboardController.tratamentosChart}" />
