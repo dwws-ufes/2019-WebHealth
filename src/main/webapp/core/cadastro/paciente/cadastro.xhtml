@@ -20,14 +20,19 @@
 		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['cadastroPaciente.title']}" />
 		<h:form id="cadastroPaciente">
 		
-			<p:inputText id="paciente_nome" value="#{cadastroPacienteController.paciente.nome}" />
-			<p:inputText id="paciente_sexo" value="#{cadastroPacienteController.paciente.sexo}" />
-			<p:inputText id="endereco" value="#{cadastroPacienteController.endereco}" />
-			<p:inputText id="paciente_cidade" value="#{cadastroPacienteController.paciente.cidade}" />
-			<p:inputText id="paciente_estado" value="#{cadastroPacienteController.paciente.estado}" />
-			<p:inputText id="paciente_login" value="#{cadastroPacienteController.paciente.login}" />
-			<p:password id="paciente_senha" value="#{cadastroPacienteController.paciente.senha}" />
-			<p:password id="confirmaSenha" value="#{cadastroPacienteController.confirmaSenha}" />
+			Nome<p:inputText id="paciente_nome" value="#{cadastroPacienteController.selectedEntity.nome}" />
+			Sexo<p:inputText id="paciente_sexo" value="#{cadastroPacienteController.selectedEntity.sexo}" />
+			Endereço<p:inputText id="paciente_endereco" value="#{cadastroPacienteController.selectedEntity.endereco}" />
+			Cidade<p:inputText id="paciente_cidade" value="#{cadastroPacienteController.selectedEntity.cidade}" />
+			Estado<p:inputText id="paciente_estado" value="#{cadastroPacienteController.selectedEntity.estado}" />
+			Login<p:inputText id="paciente_login" value="#{cadastroPacienteController.selectedEntity.login}" />
+			Senha<p:password id="paciente_senha" value="#{cadastroPacienteController.selectedEntity.senha}" />
+			Confirmar Senha<p:password id="confirmaSenha" value="#{cadastroPacienteController.confirmaSenha}" />
+		<p:commandButton id="saveButton" value="#{msgs['jbutler.crud.button.save']}" action="#{cadastroPacienteController.save}" style="margin-right:20px;" styleClass="ui-priority-primary" 
+		rendered="#{! cadastroPacienteController.readOnly}"/>
+		<p:defaultCommand target = "saveButton"/>
+		<p:commandButton id="cancelButton" value="Cancelar" action="#{cadastroPacienteController.voltar()}" immediate="true" style="margin-right:20px;" styleClass="ui-priority-primary" 
+		rendered="#{!cadastroPacienteController.readOnly}"/>
 		</h:form>
     
     </ui:define>

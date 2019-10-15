@@ -18,18 +18,19 @@
 
     <ui:define name="body">
 		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['dashboard.title']}" />
-		<p:inputText id="nomeDoenca" value="#{dashboardController.nomeDoenca}" />
-		<p:barChart id="sintomasChart" value="#{dashboardController.sintomasChart}" />
-		<p:chart id="remediosChart" value="#{dashboardController.remediosChart}" />
-		<p:chart id="tratamentosChart" value="#{dashboardController.tratamentosChart}" />
 		<h:form id="filtro">
-		
+			<p:inputText id="nomeDoenca" value="#{dashboardController.nomeDoenca}" />
 			<p:selectCheckboxMenu id="doencas" value="#{dashboardController.doencas}" />
 			<p:selectCheckboxMenu id="sintomas" value="#{dashboardController.sintomas}" />
 			<p:selectCheckboxMenu id="remedios" value="#{dashboardController.remedios}" />
 			<p:selectOneMenu id="cidade" value="#{dashboardController.cidade}" />
 			<p:selectOneMenu id="estado" value="#{dashboardController.estado}" />
 		</h:form>
-    
+		<h:panelGroup >	
+			<p:barChart id="sintomasChart" value="#{dashboardController.sintomasChart}" rendered="#{dashboardController.showCharts}"/>
+			<p:chart id="remediosChart" value="#{dashboardController.remediosChart}" rendered="#{dashboardController.showCharts}" />
+			<p:chart id="tratamentosChart" value="#{dashboardController.tratamentosChart}" rendered="#{dashboardController.showCharts}" />
+		</h:panelGroup>
+
     </ui:define>
 </ui:composition>
