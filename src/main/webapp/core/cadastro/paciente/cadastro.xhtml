@@ -17,15 +17,16 @@
     </ui:define>
 
     <ui:define name="body">
-		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['cadastroPaciente.title']}" /><h:form id="cadastroPaciente">
+		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['cadastroPaciente.title']}" />
+		<h:form id="cadastroPaciente">
 		
-			<p:inputText id="paciente.nome" value="#{cadastroPacienteController.paciente.nome}" />
-			<p:inputText id="paciente.sexo" value="#{cadastroPacienteController.paciente.sexo}" />
+			<p:inputText id="paciente_nome" value="#{cadastroPacienteController.paciente.nome}" />
+			<p:inputText id="paciente_sexo" value="#{cadastroPacienteController.paciente.sexo}" />
 			<p:inputText id="endereco" value="#{cadastroPacienteController.endereco}" />
-			<p:inputText id="paciente.cidade" value="#{cadastroPacienteController.paciente.cidade}" />
-			<p:inputText id="paciente.estado" value="#{cadastroPacienteController.paciente.estado}" />
-			<p:inputText id="paciente.login" value="#{cadastroPacienteController.paciente.login}" />
-			<p:password id="paciente.senha" value="#{cadastroPacienteController.paciente.senha}" />
+			<p:inputText id="paciente_cidade" value="#{cadastroPacienteController.paciente.cidade}" />
+			<p:inputText id="paciente_estado" value="#{cadastroPacienteController.paciente.estado}" />
+			<p:inputText id="paciente_login" value="#{cadastroPacienteController.paciente.login}" />
+			<p:password id="paciente_senha" value="#{cadastroPacienteController.paciente.senha}" />
 			<p:password id="confirmaSenha" value="#{cadastroPacienteController.confirmaSenha}" />
 		</h:form>
     

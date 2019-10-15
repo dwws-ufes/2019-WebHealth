@@ -21,6 +21,9 @@
 		
 			<p:inputText id="login" value="#{loginController.login}" />
 			<p:password id="senha" value="#{loginController.senha}" />
+			<p:commandButton value="Submeter" action="#{loginController.realizarLogin}" icon="" style="margin-right:20px;">
+    <f:param name="productId" value="10" />
+</p:commandButton>
 		</h:form>
     
     </ui:define>
