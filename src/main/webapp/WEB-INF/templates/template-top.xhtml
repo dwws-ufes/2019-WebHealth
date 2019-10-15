@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/admin-top.xhtml">
+
+    <ui:define name="head">
+        <ui:include src="/layout/head.xhtml" />
+    </ui:define>
+
+    <ui:define name="logo">
+        WebHealth
+    </ui:define>
+
+     <ui:define name="menu">
+         <ui:include src="/layout/menubar.xhtml"/>
+     </ui:define>
+
+    <ui:define name="top-menu">
+        <ui:include src="/layout/top-bar.xhtml"/>
+    </ui:define>
+    
+    <ui:define name="body" >
+        <h:form id="contentForm" prependId="false" enctype="#{enctype}">
+            <ui:include src="/layout/content.xhtml" />
+        </h:form>
+    </ui:define>
+
+    <ui:define name="footer">
+        <ui:include src="/layout/footer.xhtml" />
+    </ui:define>
+
+</ui:composition>
