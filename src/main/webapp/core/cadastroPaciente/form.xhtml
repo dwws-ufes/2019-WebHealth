@@ -16,6 +16,7 @@
         <h:outputText value="#{msgsCore['cadastroPaciente.title.description']}" />
     </ui:define>
 
+
     <ui:define name="body">
 		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['cadastroPaciente.title']}" />
 		<h:form id="cadastroPaciente">
@@ -28,7 +29,7 @@
 			Login<p:inputText id="paciente_login" value="#{cadastroPacienteController.selectedEntity.login}" />
 			Senha<p:password id="paciente_senha" value="#{cadastroPacienteController.selectedEntity.senha}" />
 			Confirmar Senha<p:password id="confirmaSenha" value="#{cadastroPacienteController.confirmaSenha}" />
-		<p:commandButton id="saveButton" value="#{msgs['jbutler.crud.button.save']}" action="#{cadastroPacienteController.save}" style="margin-right:20px;" styleClass="ui-priority-primary" 
+		<p:commandButton id="saveButton" value="Salvar" action="#{cadastroPacienteController.save}" style="margin-right:20px;" styleClass="ui-priority-primary" 
 		rendered="#{! cadastroPacienteController.readOnly}"/>
 		<p:defaultCommand target = "saveButton"/>
 		<p:commandButton id="cancelButton" value="Cancelar" action="#{cadastroPacienteController.voltar()}" immediate="true" style="margin-right:20px;" styleClass="ui-priority-primary" 
