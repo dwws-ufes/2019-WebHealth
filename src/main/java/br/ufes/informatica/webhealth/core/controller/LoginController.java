@@ -59,4 +59,10 @@ public class LoginController extends JSFController {
 		this.senha = senha;
 	}
 	
+	public String irParaCadastro()
+	{
+		return "/core/cadastroPaciente/index.xhtml?faces-redirect=true";
+	}
+
+	
 }

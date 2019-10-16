@@ -13,9 +13,16 @@
     
     
     <ui:define name="body">
-    <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
-    <p:graphicImage name="demo/images/nature/#{image}" alt="Image Description for #{image}" title="#{image}"/>
-</p:galleria>
+    <h:button value="Cadastro Pacientes" outcome="/core/cadastroPaciente/index.xhtml" />
+    <br/>
+    <br/>
+    <h:button value="Cadastro Ocorrencias" outcome="/core/cadastroOcorrencia/index.xhtml" />
+    <br/>
+    <br/>
+    <h:button value="login" outcome="/core/login/index.xhtml" />
+    <br/>
+    <br/>
+    <h:button value="Dashboard" outcome="/core/dashboard/dashboard.xhtml" />
     </ui:define>
     
 </ui:composition>

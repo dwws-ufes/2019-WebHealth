@@ -64,7 +64,7 @@ public class CadastroPacienteController extends CrudController<Paciente> {
 
 	public String voltar()
 	{
-		return "/core/login/logi.xhtml?faces-redirect=true";
+		return "/core/login/index.xhtml?faces-redirect=true";
 	}
 	
 }

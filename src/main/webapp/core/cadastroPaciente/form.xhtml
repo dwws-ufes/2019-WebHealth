@@ -19,22 +19,39 @@
 
     <ui:define name="body">
 		<adm:breadcrumb link="/core/registration/index" title="#{msgsCore['cadastroPaciente.title']}" />
+		<h:panelGrid width="100%" style="text-align:center">
 		<h:form id="cadastroPaciente">
 		
-			Nome<p:inputText id="paciente_nome" value="#{cadastroPacienteController.selectedEntity.nome}" />
-			Sexo<p:inputText id="paciente_sexo" value="#{cadastroPacienteController.selectedEntity.sexo}" />
-			Endereço<p:inputText id="paciente_endereco" value="#{cadastroPacienteController.selectedEntity.endereco}" />
-			Cidade<p:inputText id="paciente_cidade" value="#{cadastroPacienteController.selectedEntity.cidade}" />
-			Estado<p:inputText id="paciente_estado" value="#{cadastroPacienteController.selectedEntity.estado}" />
-			Login<p:inputText id="paciente_login" value="#{cadastroPacienteController.selectedEntity.login}" />
-			Senha<p:password id="paciente_senha" value="#{cadastroPacienteController.selectedEntity.senha}" />
-			Confirmar Senha<p:password id="confirmaSenha" value="#{cadastroPacienteController.confirmaSenha}" />
+			<b>Nome</b><br/><p:inputText id="paciente_nome" value="#{cadastroPacienteController.selectedEntity.nome}" />
+			<br/>
+			<br/>
+			<b>Sexo</b><br/><p:inputText id="paciente_sexo" value="#{cadastroPacienteController.selectedEntity.sexo}" />
+			<br/>
+			<br/>
+			<b>Endereço</b><br/><p:inputText id="paciente_endereco" value="#{cadastroPacienteController.selectedEntity.endereco}" />
+			<br/>
+			<br/>
+			<b>Cidade</b><br/><p:inputText id="paciente_cidade" value="#{cadastroPacienteController.selectedEntity.cidade}" />
+			<br/>
+			<br/>
+			<b>Estado</b><br/><p:inputText id="paciente_estado" value="#{cadastroPacienteController.selectedEntity.estado}" />
+			<br/>
+			<br/>
+			<b>Login</b><br/><p:inputText id="paciente_login" value="#{cadastroPacienteController.selectedEntity.login}" />
+			<br/>
+			<br/>
+			<b>Senha</b><br/><p:password id="paciente_senha" value="#{cadastroPacienteController.selectedEntity.senha}" />
+			<br/>
+			<br/>
+			<b>Confirmar Senha</b><br/><p:password id="confirmaSenha" value="#{cadastroPacienteController.confirmaSenha}" />
+			<br/>
+			<br/>
 		<p:commandButton id="saveButton" value="Salvar" action="#{cadastroPacienteController.save}" style="margin-right:20px;" styleClass="ui-priority-primary" 
 		rendered="#{! cadastroPacienteController.readOnly}"/>
 		<p:defaultCommand target = "saveButton"/>
 		<p:commandButton id="cancelButton" value="Cancelar" action="#{cadastroPacienteController.voltar()}" immediate="true" style="margin-right:20px;" styleClass="ui-priority-primary" 
 		rendered="#{!cadastroPacienteController.readOnly}"/>
 		</h:form>
-    
+    </h:panelGrid>
     </ui:define>
 </ui:composition>

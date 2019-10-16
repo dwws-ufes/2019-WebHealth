@@ -27,12 +27,12 @@
 			<p:ajax event="rowSelect" update="buttonsGroup" />
 			<p:ajax event="rowUnselect" update="buttonsGroup" />
 			<f:facet name="header">
-				<h:outputText value="#{msgsCore['cadastroPaciente.text.entities']}" />
+				<h:outputText value="Entidades na tabela do BD" />
 			</f:facet>
-			<p:column headerText="#{msgsCore['cadastroPaciente.field.nome']}">
+			<p:column headerText="Nome">
 				<h:outputText value="#{entity.nome}" />
 			</p:column>
-			<p:column headerText="#{msgsCore['cadastroPaciente.field.login']}">
+			<p:column headerText="Login">
 				<h:outputText value="#{entity.login}" />
 			</p:column>
 			<f:facet name="footer">
