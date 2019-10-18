@@ -12,7 +12,26 @@
         <p:graphicImage name="webhealthlogo.png" library="image" width="109"/>
     </ui:define>
 	
+	 <ui:define name="menu">
+	 <br/>
+	 <br/>
+	 <br/>
+	 <h:panelGrid width="100%" style="text-align:center">
+	 
+	 <h:link value="Não Logado - Faça Login" outcome="/login/index.xhtml" rendered="#{loginController.paciente == null}" />
+     <h:outputText value="Nome: #{loginController.paciente.nome}" rendered="#{loginController.paciente != null}" />
+	 <h:outputText value="Sexo: #{loginController.paciente.sexo}" rendered="#{loginController.paciente != null}" />
+	 <h:outputText value="Cidade: #{loginController.paciente.cidade}" rendered="#{loginController.paciente != null}" />
+	 <h:outputText value="Estado: #{loginController.paciente.estado}" rendered="#{loginController.paciente != null}" />
+	 <h:outputText value="Endereço: #{loginController.paciente.endereco}" rendered="#{loginController.paciente != null}" />
+	 <h:form>
+	 <p:commandButton value="Logout" action="#{loginController.desconectar()}" style="margin-right:20px;" styleClass="ui-priority-primary"  rendered="#{loginController.paciente != null}" />
+	 </h:form>
+	 </h:panelGrid>
+	 </ui:define>
+	
 	<ui:define name="footer">
+	 
 		<h:outputText value="Sistema WebHealth" escape="false" />
 		<div class="pull-right hidden-xs" style="color: gray">
 			<i>Produzido por Alessandro e Larissa. Versão 1.0</i>

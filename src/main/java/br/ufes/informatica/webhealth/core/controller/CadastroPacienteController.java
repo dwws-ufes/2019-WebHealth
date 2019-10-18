@@ -61,10 +61,14 @@ public class CadastroPacienteController extends CrudController<Paciente> {
 		
 	}
 	
+	public String getViewPath() {
+		return "/cadastroPaciente/";
+	}
+	
 
 	public String voltar()
 	{
-		return "/core/login/index.xhtml?faces-redirect=true";
+		return "/login/index.xhtml?faces-redirect=true";
 	}
 	
 }
