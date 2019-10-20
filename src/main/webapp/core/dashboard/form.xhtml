@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:adm="http://github.com/adminfaces"
+	template="/WEB-INF/templates/template.xhtml">
+
+
+	<ui:define name="title">
+		<h:outputText value="#{msgsCore['filtro.title']}" />
+	</ui:define>
+
+	<ui:define name="description">
+		<h:outputText value="#{msgsCore['filtro.title.description']}" />
+	</ui:define>
+
+	<ui:define name="body">
+		<adm:breadcrumb link="/core/login/index"
+			title="#{msgsCore['filtro.title']}" />
+		<h:form id="filtro">
+			<p:inputText id="nomeDoenca"
+				value="#{dashboardController.nomeDoenca}" />
+			<p:selectCheckboxMenu id="doencas" id="multiple" label="Doenças"
+				multiple="true" filter="true" filterMatchMode="startsWith"
+				value="#{dashboardController.doencas}" />
+			<f:selectItems value="#{cadastroOcorrenciaController.listaDoencas}"
+				var="doenca" itemLabel="#{doenca.nomeDoenca}" itemValue="#{doenca}" />
+			</p:selectCheckboxMenu>
+			<p:selectCheckboxMenu id="sintomas"
+				value="#{dashboardController.sintomas}" id="multiple"
+				label="Sintomas" multiple="true" filter="true"
+				filterMatchMode="startsWith" />
+			<f:selectItems value="#{cadastroOcorrenciaController.listaSintomas}"
+				var="sintoma" itemLabel="#{sintoma.descricaoSintoma}"
+				itemValue="#{sintoma}" />
+			</p:selectCheckboxMenu>
+			<p:selectCheckboxMenu id="remedios"
+				value="#{dashboardController.remedios}" id="multiple"
+				label="Sintomas" multiple="true" filter="true"
+				filterMatchMode="startsWith" />
+			<f:selectItems value="#{cadastroOcorrenciaController.listaRemedios}"
+				var="remedio" itemLabel="#{remedio.nomeRemedio}"
+				itemValue="#{remedio}" />
+			</p:selectCheckboxMenu>
+			<p:inputText id="cidade" value="#{dashboardController.cidade}" />
+			<p:inputText id="estado" value="#{dashboardController.estado}" />
+			<p:commandButton value="Filtrar"
+				action="#{dashboardController.filtrar}" icon=""
+				style="margin-right:20px;">
+			</p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>

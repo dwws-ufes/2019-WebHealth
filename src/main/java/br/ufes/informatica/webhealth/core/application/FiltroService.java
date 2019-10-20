@@ -14,10 +14,10 @@ import br.ufes.informatica.webhealth.core.domain.Sintoma;
 @Local
 public interface FiltroService extends Serializable {
 
-	public List<Ocorrencia> filtrar(List<String> doencas, String cidade,
-			List<Sintoma> sintomas, String estado,
-			List<Remedio> remedios);
+	public List<Ocorrencia> filtrarPorRemedios(List<Remedio> remedios, String cidade, String estado);
 
+	public List<Ocorrencia> filtrarPorSintomas(List<Sintoma> sintomas, String cidade, String estado);
 
-	
+	public List<Ocorrencia> filtrarPorDoenças(List<String> doencas, String cidade, String estado);
+
 }

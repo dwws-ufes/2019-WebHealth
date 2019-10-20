@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:adm="http://github.com/adminfaces"
+	template="/WEB-INF/templates/template.xhtml">
+
+
+	<ui:define name="title">
+		<h:outputText value="#{msgsCore['dashboard.title']}" />
+	</ui:define>
+
+	<ui:define name="description">
+		<h:outputText value="#{msgsCore['dashboard.title.description']}" />
+	</ui:define>
+
+	<ui:define name="body">
+
+		<adm:breadcrumb link="/core/login/index"
+			title="#{msgsCore['dashboard.title']}" />
+		<p:commandButton value="Filtrar"
+			action="#{dashboardController.filtro}" icon=""
+			style="margin-right:20px;">
+		</p:commandButton>
+		<h:panelGroup>
+			<p:barChart id="sintomasChart"
+				value="#{dashboardController.sintomasChart}"
+				rendered="#{dashboardController.showCharts}" />
+			<p:chart id="remediosChart"
+				value="#{dashboardController.remediosChart}"
+				rendered="#{dashboardController.showCharts}" style="height:200px;" />
+			<p:chart id="tratamentosChart"
+				value="#{dashboardController.tratamentosChart}"
+				rendered="#{dashboardController.showCharts}" />
+		</h:panelGroup>
+
+	</ui:define>
+</ui:composition>

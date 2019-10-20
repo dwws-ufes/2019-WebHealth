@@ -38,7 +38,7 @@ public class EntityConverter implements Converter<PersistentObject> {
 	}
 
 	protected void addAttribute(UIComponent component, PersistentObject o) {
-		String key = o.getId().toString(); // codigo da empresa como chave neste caso
+		String key = o.getId().toString();
 		this.getAttributesFrom(component).put(key, o);
 	}
 
