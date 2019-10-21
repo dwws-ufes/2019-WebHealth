@@ -21,8 +21,7 @@
 		<adm:breadcrumb link="/core/registration/index"
 			title="#{msgsCore['cadastroOcorrencia.title']}" />
 		<h:form id="cadastroOcorrencia">
-			---<p:messages id="msgs" />----
-		
+		Selecione os Sintomas:
 		    <p:pickList id="sintomas" value="#{cadastroOcorrenciaController.listaSintomas}" var="sintoma"
                 itemValue="#{sintoma}" itemLabel="#{sintoma.descricaoSintoma}"  showCheckbox="true"
                 showSourceFilter="true" showTargetFilter="true" converter="entityConverter" filterMatchMode="contains" responsive="true">
@@ -35,12 +34,12 @@
 		        </p:column>
 		    </p:pickList>
 		    <p:messages for="sintomas" />
-		    
+		    Selecione a doença:
 		    <p:selectOneMenu id="ocorrencia_doenca" converter="entityConverter" value="#{cadastroOcorrenciaController.selectedEntity.doenca}" var="doenca" style="width:125px">
            		<f:selectItems value="#{cadastroOcorrenciaController.listaDoencas}" var="doenca" itemLabel="#{doenca.nomeDoenca}" itemValue="#{doenca}"/>    
         	</p:selectOneMenu>
         	<p:messages for="ocorrencia_doenca" />
-		    
+		    Selecione os Remédios:
 			<p:pickList id="remedios" value="#{cadastroOcorrenciaController.listaRemedios}" var="remedio"
                 itemValue="#{remedio}" itemLabel="#{remedio.nomeRemedio}"  showCheckbox="true"
                 showSourceFilter="true" showTargetFilter="true" converter="entityConverter" filterMatchMode="contains" responsive="true">
@@ -54,6 +53,7 @@
 		    </p:pickList>
 		    <p:messages for="remedios" />
 		    <br/>
+		    Descreva o Tratamento:
 		    <p:inputText id="ocorrencia_descricaoTratamento"
 				value="#{cadastroOcorrenciaController.selectedEntity.descricaoTratamento}"/>
 		    <!-- p:selectCheckboxMenu id="ocorrencia_sintomas"

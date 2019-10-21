@@ -17,33 +17,27 @@
 	</ui:define>
 
 	<ui:define name="body">
-		<adm:breadcrumb link="/core/login/index"
-			title="#{msgsCore['filtro.title']}" />
 		<h:form id="filtro">
 			<p:inputText id="nomeDoenca"
 				value="#{dashboardController.nomeDoenca}" />
-			<p:selectCheckboxMenu id="doencas" id="multiple" label="Doenças"
-				multiple="true" filter="true" filterMatchMode="startsWith"
-				value="#{dashboardController.doencas}" />
-			<f:selectItems value="#{cadastroOcorrenciaController.listaDoencas}"
-				var="doenca" itemLabel="#{doenca.nomeDoenca}" itemValue="#{doenca}" />
-			</p:selectCheckboxMenu>
-			<p:selectCheckboxMenu id="sintomas"
-				value="#{dashboardController.sintomas}" id="multiple"
-				label="Sintomas" multiple="true" filter="true"
-				filterMatchMode="startsWith" />
-			<f:selectItems value="#{cadastroOcorrenciaController.listaSintomas}"
-				var="sintoma" itemLabel="#{sintoma.descricaoSintoma}"
-				itemValue="#{sintoma}" />
-			</p:selectCheckboxMenu>
-			<p:selectCheckboxMenu id="remedios"
-				value="#{dashboardController.remedios}" id="multiple"
-				label="Sintomas" multiple="true" filter="true"
-				filterMatchMode="startsWith" />
-			<f:selectItems value="#{cadastroOcorrenciaController.listaRemedios}"
-				var="remedio" itemLabel="#{remedio.nomeRemedio}"
-				itemValue="#{remedio}" />
-			</p:selectCheckboxMenu>
+			
+			
+			
+			  <p:selectCheckboxMenu id="doencas" value="#{dashboardController.doencas}" label="Doenças"
+                              multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+            <f:selectItems value="#{dashboardController.listaDoencas}" var="doenca" itemLabel="#{doenca.nomeDoenca}" itemValue="#{doenca}"/>
+        </p:selectCheckboxMenu>
+			
+			<p:selectCheckboxMenu id="sintomas" value="#{dashboardController.sintomas}" label="Sintomas"
+                              multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+          <f:selectItems value="#{dashboardController.listaSintomas}" var="sintoma" itemLabel="#{sintoma.descricaoSintoma}" itemValue="#{sintoma}" converter="entityConverter"/>
+        </p:selectCheckboxMenu>
+        
+        			<p:selectCheckboxMenu id="remedios" value="#{dashboardController.remedios}" label="Remedios"
+                              multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+          <f:selectItems value="#{dashboardController.listaRemedios}" var="remedio" itemLabel="#{remedio.nomeRemedio}" itemValue="#{remedio}" converter="entityConverter"/>
+        </p:selectCheckboxMenu>
+			
 			<p:inputText id="cidade" value="#{dashboardController.cidade}" />
 			<p:inputText id="estado" value="#{dashboardController.estado}" />
 			<p:commandButton value="Filtrar"
