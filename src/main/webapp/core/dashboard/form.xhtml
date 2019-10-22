@@ -18,32 +18,44 @@
 
 	<ui:define name="body">
 		<h:form id="filtro">
-			<p:inputText id="nomeDoenca"
-				value="#{dashboardController.nomeDoenca}" />
-			
-			
-			
-			  <p:selectCheckboxMenu id="doencas" value="#{dashboardController.doencas}" label="Doenças"
-                              multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-            <f:selectItems value="#{dashboardController.listaDoencas}" var="doenca" itemLabel="#{doenca.nomeDoenca}" itemValue="#{doenca}"/>
-        </p:selectCheckboxMenu>
-			
-			<p:selectCheckboxMenu id="sintomas" value="#{dashboardController.sintomas}" label="Sintomas"
-                              multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-          <f:selectItems value="#{dashboardController.listaSintomas}" var="sintoma" itemLabel="#{sintoma.descricaoSintoma}" itemValue="#{sintoma}" converter="entityConverter"/>
-        </p:selectCheckboxMenu>
-        
-        			<p:selectCheckboxMenu id="remedios" value="#{dashboardController.remedios}" label="Remedios"
-                              multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-          <f:selectItems value="#{dashboardController.listaRemedios}" var="remedio" itemLabel="#{remedio.nomeRemedio}" itemValue="#{remedio}" converter="entityConverter"/>
-        </p:selectCheckboxMenu>
-			
-			<p:inputText id="cidade" value="#{dashboardController.cidade}" />
-			<p:inputText id="estado" value="#{dashboardController.estado}" />
-			<p:commandButton value="Filtrar"
-				action="#{dashboardController.filtrar}" icon=""
-				style="margin-right:20px;">
-			</p:commandButton>
+			<h:panelGrid columns="1" cellpadding="10">
+				<h:outputLabel for="doencas" value="Doencas:" />
+				<p:selectCheckboxMenu id="doencas"
+					value="#{dashboardController.doencas}" label="Doenças"
+					multiple="true" filter="true" filterMatchMode="startsWith"
+					panelStyle="width:250px">
+					<f:selectItems value="#{dashboardController.listaDoencas}"
+						var="doenca" itemLabel="#{doenca.nomeDoenca}"
+						itemValue="#{doenca}" />
+				</p:selectCheckboxMenu>
+				<h:outputLabel for="sintomas" value="Sintomas:" />
+				<p:selectCheckboxMenu id="sintomas"
+					value="#{dashboardController.sintomas}" label="Sintomas"
+					multiple="true" filter="true" filterMatchMode="startsWith"
+					panelStyle="width:250px">
+					<f:selectItems value="#{dashboardController.listaSintomas}"
+						var="sintoma" itemLabel="#{sintoma.descricaoSintoma}"
+						itemValue="#{sintoma}" converter="entityConverter" />
+				</p:selectCheckboxMenu>
+				
+				<h:outputLabel for="remedios" value="Remedios:" />
+				<p:selectCheckboxMenu id="remedios"
+					value="#{dashboardController.remedios}" label="Remedios"
+					multiple="true" filter="true" filterMatchMode="startsWith"
+					panelStyle="width:250px">
+					<f:selectItems value="#{dashboardController.listaRemedios}"
+						var="remedio" itemLabel="#{remedio.nomeRemedio}"
+						itemValue="#{remedio}" converter="entityConverter" />
+				</p:selectCheckboxMenu>
+				<h:outputLabel for="cidade" value="Cidade:" />
+				<p:inputText id="cidade" value="#{dashboardController.cidade}" />
+				<h:outputLabel for="estado" value="Estado:" />
+				<p:inputText id="estado" value="#{dashboardController.estado}" />
+				<p:commandButton value="Filtrar"
+					action="#{dashboardController.filtrar}" icon=""
+					style="margin-right:20px;margin-top:20px">
+				</p:commandButton>
+			</h:panelGrid>
 		</h:form>
 	</ui:define>
 </ui:composition>

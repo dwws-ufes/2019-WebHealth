@@ -13,4 +13,5 @@ import br.ufes.informatica.webhealth.core.domain.Sintoma;
 @Local
 public interface OcorrenciaDAO extends BaseDAO<Ocorrencia> {
 	public List<Ocorrencia> filtrar(List<String> doencas, String cidade, String estado);
+	public List<Ocorrencia> filtrarPorLocalizacao(String cidade, String estado);
 }
