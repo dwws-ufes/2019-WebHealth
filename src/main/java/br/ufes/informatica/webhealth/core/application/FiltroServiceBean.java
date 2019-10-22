@@ -25,7 +25,7 @@ public class FiltroServiceBean implements FiltroService {
 	@Override
 	public List<Ocorrencia> filtrarPorRemedios(List<Remedio> remedios, String cidade, String estado) {
 		List<Ocorrencia> listaAux = new ArrayList();
-		listaAux = ocorrenciaDAO.retrieveAll();
+		listaAux = ocorrenciaDAO.filtrarPorLocalizacao(cidade, estado);
 		for (Ocorrencia oc : listaAux) {
 			for (Remedio remedio : oc.getRemedios()) {
 				if (!remedios.contains(remedio)) {
@@ -39,7 +39,7 @@ public class FiltroServiceBean implements FiltroService {
 	@Override
 	public List<Ocorrencia> filtrarPorSintomas(List<Sintoma> sintomas, String cidade, String estado) {
 		List<Ocorrencia> listaAux = new ArrayList();
-		listaAux = ocorrenciaDAO.retrieveAll();
+		listaAux = ocorrenciaDAO.filtrarPorLocalizacao(cidade, estado);
 		if (listaAux != null) {
 			for (Ocorrencia oc : listaAux) {
 				for (Sintoma sint : oc.getSintomas()) {

@@ -22,18 +22,18 @@
 			title="#{msgsCore['dashboard.title']}" />
 		<p:commandButton value="Filtrar"
 			action="#{dashboardController.filtro}" icon=""
-			style="margin-right:20px;">
+			style="margin-right:20px;text-align:center">
 		</p:commandButton>
 		<h:panelGroup>
 			<p:barChart id="sintomasChart"
 				value="#{dashboardController.sintomasChart}"
-				rendered="#{dashboardController.showCharts}" />
+				rendered="#{dashboardController.showCharts}" style="height:200px;"/>
 			<p:chart id="remediosChart"
 				value="#{dashboardController.remediosChart}"
-				rendered="#{dashboardController.showCharts}" style="height:200px;" />
+				rendered="#{dashboardController.showCharts}" style="height:200px;"/>
 			<p:chart id="tratamentosChart"
-				value="#{dashboardController.tratamentosChart}"
-				rendered="#{dashboardController.showCharts}" />
+				value="#{dashboardController.doencasChart}"
+				rendered="#{dashboardController.showCharts}" style="height:200px;" />
 		</h:panelGroup>
 
 	</ui:define>
