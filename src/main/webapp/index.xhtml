@@ -1,28 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui"
-    xmlns:adm="http://github.com/adminfaces"
-    template="/WEB-INF/templates/template.xhtml">
-	
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:adm="http://github.com/adminfaces"
+	template="/WEB-INF/templates/template.xhtml">
 
-    <ui:define name="title">
-    </ui:define>
-    
-    
-    <ui:define name="body">
-    <h:button value="Cadastro Pacientes" outcome="/core/cadastroPaciente/index.xhtml" />
-    <br/>
-    <br/>
-    <h:button value="Cadastro Ocorrencias" outcome="/core/cadastroOcorrencia/index.xhtml" />
-    <br/>
-    <br/>
-    <h:button value="login" outcome="/core/login/index.xhtml" />
-    <br/>
-    <br/>
-    <h:button value="Dashboard" outcome="/core/dashboard/index.xhtml" />
-    </ui:define>
-    
+
+	<ui:define name="title">
+	</ui:define>
+
+
+	<ui:define name="body">
+		<br />
+		<h:panelGrid width="100%" style="text-align:center">
+		<h:panelGrid width="15%" style="margin: 0 auto;">
+		 <p:clock displayMode="analog" />
+		 </h:panelGrid>
+		 <br/>
+			<h:outputText
+				value="#{msgsCore['index.welcome']}, #{loginController.paciente.nome}."
+				style="font-family: cursive; font-size: xx-large; font-weight:bold; color: #632ca2"
+				rendered="#{loginController.paciente != null}" />
+			<h:outputText value="#{msgsCore['index.welcome']}!"
+				style="font-family: cursive; font-size: xx-large; font-weight:bold; color: #632ca2"
+				rendered="#{loginController.paciente == null}" />
+			<br />
+			<p:linkButton outcome="/login/index.xhtml"
+				value="#{msgsCore['index.do']}!" icon="fa fa-arrow-right"
+				style="margin-right:20px;color: #ce3631"
+				rendered="#{loginController.paciente == null}">
+			</p:linkButton>
+			<p:linkButton outcome="/core/dashboard/index.xhtml"
+				value="#{msgsCore['index.todashboard']}" icon="fa fa-sellsy"
+				style="margin-right:20px;color: #ce3631"
+				rendered="#{loginController.paciente != null}">
+			</p:linkButton>
+			<br />
+			<p:linkButton outcome="/core/cadastroOcorrencia/index.xhtml"
+				value="#{msgsCore['index.toocorrencia']}" icon="fa fa-clipboard"
+				style="margin-right:20px;color: #ce3631"
+				rendered="#{loginController.paciente != null}">
+			</p:linkButton>
+		</h:panelGrid>
+	</ui:define>
+
 </ui:composition>

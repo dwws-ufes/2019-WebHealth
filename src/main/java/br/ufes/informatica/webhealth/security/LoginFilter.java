@@ -14,15 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.ufes.informatica.webhealth.core.controller.LoginController;
 import br.ufes.informatica.webhealth.core.domain.Paciente;
- 
- 
-/**
- * Filter checks if LoginBean has loginIn property set to true.
- * If it is not set then request is being redirected to the login.xhml page.
- * 
- * @author itcuties
- *
- */
+
 public class LoginFilter implements Filter {
  
     /**

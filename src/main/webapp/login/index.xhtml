@@ -20,12 +20,14 @@
 		<adm:breadcrumb link="/core/registration/index"
 			title="#{msgsCore['login.title']}" />
 		<h:panelGrid width="100%" style="text-align:center">
+		  <p:graphicImage name="webhealthlogo.png" library="image" width="200"/>
+		  <br/>
 			<h:form id="login">
-			Login: 
-			<p:inputText id="login" value="#{loginController.login}" />
+			<b>Login:</b>
+			<p:inputText id="login" value="#{loginController.login}" style="width: 15%" />
 				<br />
-			Senha: 
-			<p:password id="senha" value="#{loginController.senha}" />
+			<b>Senha:</b> 
+			<p:password id="senha" value="#{loginController.senha}" style="width: 15%"/>
 				<br />
 				<br />
 				<p:commandButton value="Submeter"
