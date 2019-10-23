@@ -25,26 +25,39 @@ public class FiltroServiceBean implements FiltroService {
 	@Override
 	public List<Ocorrencia> filtrarPorRemedios(List<Remedio> remedios, String cidade, String estado) {
 		List<Ocorrencia> listaAux = new ArrayList();
-		listaAux = ocorrenciaDAO.filtrarPorLocalizacao(cidade, estado);
+		List<Ocorrencia> listaOcorrencias = new ArrayList();
+		listaOcorrencias = ocorrenciaDAO.listarOcorrencias();
 		for (Ocorrencia oc : listaAux) {
-			for (Remedio remedio : oc.getRemedios()) {
-				if (!remedios.contains(remedio)) {
-					listaAux.remove(oc);
+			if (oc.getPaciente().getEstado().equals(estado) && oc.getPaciente().getCidade().equals(cidade)) {
+				for (Remedio remedioOcorrencia : remedios) {
+					for (Remedio remedio : oc.getRemedios()) {
+						if (remedioOcorrencia.getNomeRemedio().equals(remedio.getNomeRemedio())) {
+							listaAux.add(oc);
+						}
+					}
 				}
 			}
+
 		}
+
 		return listaAux;
+
 	}
 
 	@Override
 	public List<Ocorrencia> filtrarPorSintomas(List<Sintoma> sintomas, String cidade, String estado) {
+		List<Ocorrencia> listaOcorrencias = new ArrayList();
 		List<Ocorrencia> listaAux = new ArrayList();
-		listaAux = ocorrenciaDAO.filtrarPorLocalizacao(cidade, estado);
-		if (listaAux != null) {
-			for (Ocorrencia oc : listaAux) {
-				for (Sintoma sint : oc.getSintomas()) {
-					if (!sintomas.contains(sint)) {
-						listaAux.remove(oc);
+		listaOcorrencias = ocorrenciaDAO.listarOcorrencias();
+		if (listaOcorrencias != null) {
+			for (Ocorrencia oc : listaOcorrencias) {
+				if (oc.getPaciente().getEstado().equals(estado) && oc.getPaciente().getCidade().equals(cidade)) {
+					for (Sintoma sint : sintomas) {
+						for (Sintoma sintomaOc : oc.getSintomas()) {
+							if (sint.getDescricaoSintoma().equals(sintomaOc.getDescricaoSintoma())) {
+								listaAux.add(oc);
+							}
+						}
 					}
 				}
 			}

@@ -6,8 +6,10 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ListJoin;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -49,17 +51,9 @@ public class OcorrenciaJPADAO extends BaseJPADAO<Ocorrencia> implements Ocorrenc
 	}
 
 	@Override
-	public List<Ocorrencia> filtrarPorLocalizacao(String cidade, String estado) {
-		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Ocorrencia> cq = cb.createQuery(Ocorrencia.class);
-		Root<Ocorrencia> root = cq.from(Ocorrencia.class);
-		root.join(Ocorrencia_.sintomas);
-		root.join(Ocorrencia_.remedios);
-		Predicate p1 = cb.equal( root.get(Ocorrencia_.paciente).get("cidade"),cidade);
-		Predicate p2 = cb.equal( root.get(Ocorrencia_.paciente).get("estado"),estado);
-		cq.select(root);
-		cq.where(p1,p2);
-		return entityManager.createQuery(cq).getResultList();
+	public List<Ocorrencia> listarOcorrencias() {
+		List<Ocorrencia> ocorrencias = entityManager.createQuery("SELECT DISTINCT e FROM Ocorrencia e").getResultList();
+		return ocorrencias;
 	}
 
 }
