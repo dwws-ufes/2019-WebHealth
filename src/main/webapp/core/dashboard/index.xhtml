@@ -25,14 +25,14 @@
 			style="margin-right:20px;text-align:center">
 		</p:commandButton>
 		<h:panelGroup>
-			<p:barChart id="sintomasChart"
-				value="#{dashboardController.sintomasChart}"
+			<p:chart id="sintomasChart" type="bar"
+				model="#{dashboardController.sintomasChart}"
 				rendered="#{dashboardController.showCharts}" style="height:200px;"/>
 			<p:chart id="remediosChart"
-				value="#{dashboardController.remediosChart}"
+				type="pie" model="#{dashboardController.remediosChart}"
 				rendered="#{dashboardController.showCharts}" style="height:200px;"/>
-			<p:chart id="tratamentosChart"
-				value="#{dashboardController.doencasChart}"
+			<p:chart id="doencasChart"
+				type="line" model="#{dashboardController.doencasChart}"
 				rendered="#{dashboardController.showCharts}" style="height:200px;" />
 		</h:panelGroup>
 
