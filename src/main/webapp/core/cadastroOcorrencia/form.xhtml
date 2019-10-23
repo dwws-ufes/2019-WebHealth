@@ -35,7 +35,7 @@
 		    </p:pickList>
 		    <p:messages for="sintomas" />
 		    Selecione a doença:
-		    <p:selectOneMenu id="ocorrencia_doenca" converter="entityConverter" value="#{cadastroOcorrenciaController.selectedEntity.doenca}" var="doenca" style="width:125px">
+		    <p:selectOneMenu style="width:300px" id="ocorrencia_doenca" converter="entityConverter" value="#{cadastroOcorrenciaController.selectedEntity.doenca}" filter="true" filterMatchMode="startsWith">
            		<f:selectItems value="#{cadastroOcorrenciaController.listaDoencas}" var="doenca" itemLabel="#{doenca.nomeDoenca}" itemValue="#{doenca}"/>    
         	</p:selectOneMenu>
         	<p:messages for="ocorrencia_doenca" />
@@ -54,7 +54,8 @@
 		    <p:messages for="remedios" />
 		    <br/>
 		    Descreva o Tratamento:
-		    <p:inputText id="ocorrencia_descricaoTratamento"
+		    <br/>
+		    <p:inputTextarea id="ocorrencia_descricaoTratamento"
 				value="#{cadastroOcorrenciaController.selectedEntity.descricaoTratamento}"/>
 		    <!-- p:selectCheckboxMenu id="ocorrencia_sintomas"
 				value="#{cadastroOcorrenciaController.selectedEntity.sintomas}" />
@@ -63,11 +64,11 @@
 			<p:inputText id="ocorrencia_descricaoTratamento"
 				value="#{cadastroOcorrenciaController.selectedEntity.descricaoTratamento}" /-->
 				<br/>
-				
-			<p:commandButton id="saveButton" value="Salvar"
+				<p:commandButton id="saveButton" value="Salvar"
 				action="#{cadastroOcorrenciaController.save}"
 				style="margin-right:20px;" styleClass="ui-priority-primary"
 				rendered="#{! cadastroOcorrenciaController.readOnly}" />
 		</h:form>
+		
 	</ui:define>
 </ui:composition>

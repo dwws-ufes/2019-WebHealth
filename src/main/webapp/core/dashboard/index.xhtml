@@ -17,24 +17,64 @@
 	</ui:define>
 
 	<ui:define name="body">
-
-		<adm:breadcrumb link="/core/login/index"
+		<adm:breadcrumb link="/login/index"
 			title="#{msgsCore['dashboard.title']}" />
-		<p:commandButton value="Filtrar"
-			action="#{dashboardController.filtro}" icon=""
-			style="margin-right:20px;text-align:center">
-		</p:commandButton>
-		<h:panelGroup>
+		<h:panelGrid width="100%" style="text-align:center"
+			rendered="#{!dashboardController.showCharts}">
+			<br />
+			<br />
+			<br />
+			<h:panelGroup rendered="#{dashboardController.chartsError}">
+				<h:outputText value="#{msgsCore['dashboard.error']}"
+					style="font-family: cursive; font-size: xx-large; font-weight:bold; color: #ce3631"
+				/>
+				<br />
+				<br />
+			</h:panelGroup>
+			<h:outputText value="#{msgsCore['dashboard.welcome']}!"
+				style="font-family: cursive; font-size: large; font-weight:bold; color: #632ca2"
+				rendered="#{!dashboardController.showCharts}" />
+			<br />
+			<h:form id="filtrar">
+
+
+
+				<p:commandButton value="Filtrar"
+					action="#{dashboardController.filtro}"
+					rendered="#{!dashboardController.showCharts}" icon=""
+					style="margin-right:20px;text-align:center">
+				</p:commandButton>
+			</h:form>
+		</h:panelGrid>
+		<h:panelGroup rendered="#{!dashboardController.chartsError}">
 			<p:chart id="sintomasChart" type="bar"
 				model="#{dashboardController.sintomasChart}"
-				rendered="#{dashboardController.showCharts}" style="height:200px;"/>
-			<p:chart id="remediosChart"
-				type="pie" model="#{dashboardController.remediosChart}"
-				rendered="#{dashboardController.showCharts}" style="height:200px;"/>
-			<p:chart id="doencasChart"
-				type="line" model="#{dashboardController.doencasChart}"
+				rendered="#{dashboardController.showCharts}" style="height:200px;" />
+			<p:chart id="remediosChart" type="pie"
+				model="#{dashboardController.remediosChart}"
+				rendered="#{dashboardController.showCharts}" style="height:200px;" />
+			<p:chart id="doencasChart" type="line"
+				model="#{dashboardController.doencasChart}"
 				rendered="#{dashboardController.showCharts}" style="height:200px;" />
 		</h:panelGroup>
 
+
+
+		<h:panelGrid width="100%" style="text-align:center"
+			rendered="#{dashboardController.showCharts}">
+			<h:form id="filtrar2">
+				<br />
+				<br />
+				<p:commandButton value="Refazer Filtragem"
+					action="#{dashboardController.filtro}"
+					rendered="#{dashboardController.showCharts}"
+					icon="fa fa-rotate-left" style="margin-right:20px;color: #ce3631">
+				</p:commandButton>
+				<p:linkButton outcome="/core/cadastroOcorrencia/index.xhtml"
+					value="#{msgsCore['index.toocorrencia']}" icon="fa fa-clipboard"
+					style="margin-right:20px;color: #ce3631">
+				</p:linkButton>
+			</h:form>
+		</h:panelGrid>
 	</ui:define>
 </ui:composition>
