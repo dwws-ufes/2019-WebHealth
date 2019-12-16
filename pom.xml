@@ -60,6 +60,12 @@
 			<artifactId>primefaces</artifactId>
 			<version>7.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>apache-jena-libs</artifactId>
+			<type>pom</type>
+			<version>3.3.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.omnifaces</groupId>

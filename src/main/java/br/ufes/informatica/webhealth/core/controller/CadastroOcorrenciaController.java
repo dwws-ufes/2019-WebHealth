@@ -9,6 +9,11 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
 import org.primefaces.model.DualListModel;
 
 import br.ufes.inf.nemo.jbutler.ejb.application.CrudService;
@@ -45,6 +50,8 @@ public class CadastroOcorrenciaController extends CrudController<Ocorrencia> {
 	private DualListModel<Sintoma> listaSintomas;
 	private List<Doenca> listaDoencas;
 	private DualListModel<Remedio> listaRemedios;
+	private String doencaInfo;
+	private boolean doencaInfoRetrieved;
 
 	@PostConstruct
 	public void init() {
@@ -137,7 +144,7 @@ public class CadastroOcorrenciaController extends CrudController<Ocorrencia> {
 		this.prepare();
 		return redirect;
 	}
-	
+
 	@Override
 	public String retrieve() {
 		String redirect = super.create();
@@ -150,4 +157,43 @@ public class CadastroOcorrenciaController extends CrudController<Ocorrencia> {
 		ocorrencia.setPaciente((Paciente) getExternalContext().getSessionMap().get("paciente"));
 		return ocorrencia;
 	}
+
+	public void handleInfoDoenca() {
+		String name = selectedEntity.getDoenca().getNomeDoenca();
+		if (name != null && name.length() > 3) {
+			String query = "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\r\n"
+					+ "PREFIX owl: <http://www.w3.org/2002/07/owl#>\r\n"
+					+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  \r\n"
+					+ "PREFIX dbo: <http://dbpedia.org/ontology/>\r\n" + "\r\n" + "SELECT DISTINCT  ?abstract\r\n"
+					+ "WHERE {\r\n" + "    ?d a <http://dbpedia.org/ontology/Disease>.\r\n"
+					+ "    ?d dbo:abstract ?abstract.\r\n" + "    ?d rdfs:label ?dn.\r\n"
+					+ "    FILTER(langMatches(lang(?abstract),'pt') && langMatches(lang(?dn),'pt') && (?dn =\"" + name
+					+ "\"@pt ))      \r\n" + "}";
+			QueryExecution queryExecution = QueryExecutionFactory.sparqlService("http://dbpedia.org/sparql", query);
+			ResultSet results = queryExecution.execSelect();
+			if (results.hasNext()) {
+				QuerySolution querySolution = results.next();
+				Literal literal = querySolution.getLiteral("abstract");
+				setDoencaInfo("" + literal.getValue());
+				Object test = literal.getValue();
+			}
+		}
+	}
+
+	public String getDoencaInfo() {
+		return doencaInfo;
+	}
+
+	public void setDoencaInfo(String doencaInfo) {
+		this.doencaInfo = doencaInfo;
+	}
+
+	public boolean isDoencaInfoRetrieved() {
+		return doencaInfoRetrieved;
+	}
+
+	public void setDoencaInfoRetrieved(boolean doencaInfoRetrieved) {
+		this.doencaInfoRetrieved = doencaInfoRetrieved;
+	}
+
 }

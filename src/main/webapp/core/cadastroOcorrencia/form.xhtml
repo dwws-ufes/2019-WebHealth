@@ -21,54 +21,67 @@
 		<adm:breadcrumb link="/core/registration/index"
 			title="#{msgsCore['cadastroOcorrencia.title']}" />
 		<h:form id="cadastroOcorrencia">
-		Selecione os Sintomas:
-		    <p:pickList id="sintomas" value="#{cadastroOcorrenciaController.listaSintomas}" var="sintoma"
-                itemValue="#{sintoma}" itemLabel="#{sintoma.descricaoSintoma}"  showCheckbox="true"
-                showSourceFilter="true" showTargetFilter="true" converter="entityConverter" filterMatchMode="contains" responsive="true">
-        
-		        <f:facet name="sourceCaption">Sintomas Disponíveis</f:facet>
-		        <f:facet name="targetCaption">Sintomas Selecionados</f:facet>
-		 
-		        <p:column style="width:85%;">
-		            <h:outputText value="#{sintoma.descricaoSintoma}" />
-		        </p:column>
-		    </p:pickList>
-		    <p:messages for="sintomas" />
-		    Selecione a doença:
-		    <p:selectOneMenu style="width:300px" id="ocorrencia_doenca" converter="entityConverter" value="#{cadastroOcorrenciaController.selectedEntity.doenca}" filter="true" filterMatchMode="startsWith">
-           		<f:selectItems value="#{cadastroOcorrenciaController.listaDoencas}" var="doenca" itemLabel="#{doenca.nomeDoenca}" itemValue="#{doenca}"/>    
-        	</p:selectOneMenu>
-        	<p:messages for="ocorrencia_doenca" />
-		    Selecione os Remédios:
-			<p:pickList id="remedios" value="#{cadastroOcorrenciaController.listaRemedios}" var="remedio"
-                itemValue="#{remedio}" itemLabel="#{remedio.nomeRemedio}"  showCheckbox="true"
-                showSourceFilter="true" showTargetFilter="true" converter="entityConverter" filterMatchMode="contains" responsive="true">
-        
-		        <f:facet name="sourceCaption">Available</f:facet>
-		        <f:facet name="targetCaption">Starting</f:facet>
-		 
-		        <p:column style="width:85%;">
-		            <h:outputText value="#{remedio.nomeRemedio}" />
-		        </p:column>
-		    </p:pickList>
-		    <p:messages for="remedios" />
-		    <br/>
-		    Descreva o Tratamento:
-		    <br/>
-		    <p:inputTextarea id="ocorrencia_descricaoTratamento"
-				value="#{cadastroOcorrenciaController.selectedEntity.descricaoTratamento}"/>
-		    <!-- p:selectCheckboxMenu id="ocorrencia_sintomas"
-				value="#{cadastroOcorrenciaController.selectedEntity.sintomas}" />
-			<p:selectCheckboxMenu id="ocorrencia_remedios"
-				value="#{cadastroOcorrenciaController.selectedEntity.remedios}" />
-			<p:inputText id="ocorrencia_descricaoTratamento"
-				value="#{cadastroOcorrenciaController.selectedEntity.descricaoTratamento}" /-->
-				<br/>
+		 Selecione a doença:
+		    <p:selectOneMenu style="width:300px" id="ocorrencia_doenca"
+				converter="entityConverter"
+				value="#{cadastroOcorrenciaController.selectedEntity.doenca}"
+				filter="true" filterMatchMode="startsWith">
+				<p:ajax event="change" update="messageFragment" listener="#{cadastroOcorrenciaController.handleInfoDoenca()}"/>
+				<f:selectItems value="#{cadastroOcorrenciaController.listaDoencas}"
+					var="doenca" itemLabel="#{doenca.nomeDoenca}" itemValue="#{doenca}" />
+			</p:selectOneMenu>
+			<div class="ui-g-12">
+			<p:fragment id="messageFragment">
+				<p:staticMessage id="message" rendered="#{cadastroOcorrenciaController.doencaInfo != null}" severity="info" summary="Informações:"
+					detail="#{cadastroOcorrenciaController.doencaInfo}" />
+			</p:fragment>
+			</div>
+			<div class="ui-g-12">
+				Selecione os Sintomas:
+				<p:pickList id="sintomas"
+					value="#{cadastroOcorrenciaController.listaSintomas}" var="sintoma"
+					itemValue="#{sintoma}" itemLabel="#{sintoma.descricaoSintoma}"
+					showCheckbox="true" showSourceFilter="true" showTargetFilter="true"
+					converter="entityConverter" filterMatchMode="contains"
+					responsive="true">
+
+					<f:facet name="sourceCaption">Sintomas Disponíveis</f:facet>
+					<f:facet name="targetCaption">Sintomas Selecionados</f:facet>
+
+					<p:column style="width:85%;">
+						<h:outputText value="#{sintoma.descricaoSintoma}" />
+					</p:column>
+				</p:pickList>
+				<p:messages for="sintomas" />
+
+				<p:messages for="ocorrencia_doenca" />
+				Selecione os Remédios:
+				<p:pickList id="remedios"
+					value="#{cadastroOcorrenciaController.listaRemedios}" var="remedio"
+					itemValue="#{remedio}" itemLabel="#{remedio.nomeRemedio}"
+					showCheckbox="true" showSourceFilter="true" showTargetFilter="true"
+					converter="entityConverter" filterMatchMode="contains"
+					responsive="true">
+
+					<f:facet name="sourceCaption">Remédios Disponíveis</f:facet>
+					<f:facet name="targetCaption">Remédios Selecionados</f:facet>
+
+					<p:column style="width:85%;">
+						<h:outputText value="#{remedio.nomeRemedio}" />
+					</p:column>
+				</p:pickList>
+				<p:messages for="remedios" />
+				<br /> Descreva o Tratamento: <br />
+				<p:inputTextarea id="ocorrencia_descricaoTratamento"
+					value="#{cadastroOcorrenciaController.selectedEntity.descricaoTratamento}" />
+				<br />
 				<p:commandButton id="saveButton" value="Salvar"
-				action="#{cadastroOcorrenciaController.save}"
-				style="margin-right:20px;" styleClass="ui-priority-primary"
-				rendered="#{! cadastroOcorrenciaController.readOnly}" />
+					action="#{cadastroOcorrenciaController.save}"
+					style="margin-right:20px;" styleClass="ui-priority-primary"
+					rendered="#{! cadastroOcorrenciaController.readOnly}" />
+			</div>
+
 		</h:form>
-		
+
 	</ui:define>
 </ui:composition>
