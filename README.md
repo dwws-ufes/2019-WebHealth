@@ -1,5 +1,9 @@
 # 2019-WebHealth
-Assignment for the 2019 edition of the "Web Development and the Semantic Web" course, by Larissa Hortêncio and Alessandro Murta
+Assignment for the 2019 edition of the "Web Development and the Semantic Web" course, by Larissa Hortêncio and Alessandro Murta.
+
+### Description
+
+Webhealth is a web health data management system. To which, occurrences of a certain disease are registered. As well as drug information and symptoms.
 
 ### How to deploy
 
